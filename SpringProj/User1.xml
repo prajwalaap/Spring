@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+	default-autowire="byName" default-autowire-candidates="offr">
+	<!-- default autowire can be set but this can be overridden as in this it is overridden to constructor and also default autowire candidate can be given -->
+	
+	<bean id="bikeInsur" class="com.DIusingconstructor.BikeInsurance"
+		autowire="constructor">
+	<!-- -	<constructor-arg ref="offr"></constructor-arg>    for autowiring-->
+	</bean>
+	<bean id="offr" class="com.DIusingconstructor.Offer"></bean>
+	<bean id="offr2" autowire-candidate="false"
+		class="com.DIusingconstructor.Offer">   
+	</bean> <!-- when ambiguity in creating object of same constructor type the autowire-candidate can be set to false -->
+</beans>
